@@ -11,6 +11,7 @@ const app = express();
 /** Initialize middlewares */
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true })).use(bodyParser.json());
+// app.use(express static(path join(__dirname,"build")))
 
 /** Set port number */
 const port = process.env.PORT || 8080;
@@ -34,6 +35,7 @@ mongoose
 
 /** Routes definitions files */
 const usersRouter = require("./routes/users");
+const { static } = require("express");
 
 /** Use routes */
 app.use("/users", usersRouter);
